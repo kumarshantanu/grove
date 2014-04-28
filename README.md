@@ -12,7 +12,6 @@ for a host with 8GB RAM.
 ## Installation
 
 1. Install the following software packages:
-
    * [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
    * [Vagrant](http://www.vagrantup.com/downloads.html)
    * [Ansible](http://docs.ansible.com/intro_installation.html)
@@ -34,13 +33,15 @@ for a host with 8GB RAM.
    $ sudo apt-get install python-yaml python-jinja2 python-paramiko python-crypto
    ```
 
-4. Download required packages:
+4. Clone this repository, and change directory into the local repo.
+
+5. Download required packages:
 
    ```
    ansible-playbook -i localhost download.yml
    ```
 
-5. Start cluster:
+6. Start cluster:
 
    ```
    vagrant up
