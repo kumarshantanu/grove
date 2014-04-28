@@ -51,9 +51,9 @@ for a host with 8GB RAM.
 
 ### ZooKeeper
 
-   Start ZooKeeper: `./bin/zkServer start`
+   Start ZooKeeper: `./bin/zkServer.sh start`
 
-   Stop ZooKeeper: `./bin/zkServer stop`
+   Stop ZooKeeper: `./bin/zkServer.sh stop`
 
 ### Storm services (press Ctrl+C to stop)
 
