@@ -1,0 +1,20 @@
+- hosts: all
+  sudo: yes
+  remote_user: vagrant
+
+  tasks:
+    - include: java7.yml
+
+    - name: Make sure that the `bin` directory exsists
+      action: file path=bin state=directory
+
+    - name: Make sure that the `download` directory exsists
+      action: file path=download state=directory
+
+    - name: Make sure that the `app` directory exsists
+      action: file path=app state=directory
+
+    - include: extract.yml
+
+    - include: configure-zookeeper.yml
+    - include: configure-storm.yml

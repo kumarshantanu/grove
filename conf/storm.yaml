@@ -1,0 +1,17 @@
+########### These MUST be filled in for a storm configuration
+storm.zookeeper.servers:
+    - "10.211.55.101"
+    - "10.211.55.102"
+    - "10.211.55.103"
+
+nimbus.host: "10.211.55.101"
+nimbus.childopts: "-Xmx256m -Djava.net.preferIPv4Stack=true"
+
+ui.childopts: "-Xmx256m -Djava.net.preferIPv4Stack=true"
+
+supervisor.childopts: "-Djava.net.preferIPv4Stack=true -Dcom.sun.management.jmxremote.port=9999 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false"
+
+worker.childopts: "-Xmx256m -Djava.net.preferIPv4Stack=true -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false  -Dcom.sun.management.jmxremote.local.only=false -Dcom.sun.management.jmxremote.port=1099"
+
+
+storm.local.dir: "/home/vagrant/app/storm-0.9.0.1/data"

@@ -1,0 +1,23 @@
+---
+- name: Make sure that the ZooKeeper log directory exists
+  action: file path=/home/vagrant/app/zookeeper-3.4.6/log state=directory
+
+- name: Add ZOO_LOG_DIR for ZooKeeper logs
+  #raw: grep '^export ZOO_LOG_DIR' /home/vagrant/.bashrc || echo "export ZOO_LOG_DIR=/home/vagrant/app/zookeeper-3.4.6/log" >> /home/vagrant/.bashrc
+  lineinfile:
+    dest=/home/vagrant/.bashrc
+    line="export ZOO_LOG_DIR=/home/vagrant/app/zookeeper-3.4.6/log"
+    regexp="^export ZOO_LOG_DIR"
+    owner=vagrant
+    state=present
+    insertafter=EOF
+    create=True
+
+- name: Copy Zookeeper configuration file
+  copy: src=conf/zoo.cfg dest=/home/vagrant/app/zookeeper-3.4.6/conf/zoo.cfg
+
+- name: Make sure that the ZooKeeper data directory exists
+  action: file path=/home/vagrant/app/zookeeper-3.4.6/data state=directory owner=vagrant
+
+- name: Create `myid` file
+  raw: ifconfig | grep 10.211.55 | cut -d':' -f 2 | cut -d'.' -f 4 | cut -d' ' -f 1 > /home/vagrant/app/zookeeper-3.4.6/data/myid

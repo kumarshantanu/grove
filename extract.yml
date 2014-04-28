@@ -1,0 +1,15 @@
+---
+
+- unarchive: src=download/zookeeper-3.4.6.tar.gz dest=/home/vagrant/app
+
+- unarchive: src=download/storm-0.9.0.1.tar.gz dest=/home/vagrant/app
+
+- unarchive: src=download/kafka_2.9.2-0.8.1.tgz dest=/home/vagrant/app
+
+- unarchive: src=download/hadoop-1.2.1-bin.tar.gz dest=/home/vagrant/app
+
+- unarchive: src=download/apache-cassandra-2.0.7-bin.tar.gz dest=/home/vagrant/app
+
+- file: path=/home/vagrant/app owner=vagrant group=vagrant recurse=yes
+
+- copy: src=download/lein dest=/home/vagrant/bin owner=vagrant mode=755

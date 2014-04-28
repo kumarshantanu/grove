@@ -1,0 +1,9 @@
+---
+- name: Backup Stom config file
+  raw: test -f /home/vagrant/app/storm-0.9.0.1/conf/storm.yaml.orig || cp /home/vagrant/app/storm-0.9.0.1/conf/storm.yaml /home/vagrant/app/storm-0.9.0.1/conf/storm.yaml.orig
+
+- name: Copy Storm configuration file
+  copy: src=conf/storm.yaml dest=/home/vagrant/app/storm-0.9.0.1/conf/storm.yaml
+
+- name: Make sure that the Storm data directory exists
+  action: file path=/home/vagrant/app/storm-0.9.0.1/data state=directory owner=vagrant
