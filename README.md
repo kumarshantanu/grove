@@ -35,6 +35,11 @@ for a host with 8GB RAM.
 
 4. Clone this repository, and change directory into the local repo.
 
+   ```
+   git clone git@github.com:kumarshantanu/grove.git
+   cd grove
+   ```
+
 5. Download required packages:
 
    ```
