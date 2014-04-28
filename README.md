@@ -49,7 +49,7 @@ for a host with 8GB RAM.
 
 ## Services
 
-## ZooKeeper
+### ZooKeeper
 
    Start ZooKeeper: `./bin/zkServer start`
 
