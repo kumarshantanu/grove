@@ -53,6 +53,15 @@ for a host with 8GB RAM.
    vagrant provision
    ```
 
+   If you see this error: `dpkg-preconfigure: unable to re-open stdin: No such file or directory`
+   then try running the following:
+
+   ```
+   vagrant plugin install vagrant-vbguest  # repeat few times if it fails
+   vagrant reload
+   vagrant provision
+   ```
+
 ## Services
 
 ### ZooKeeper
