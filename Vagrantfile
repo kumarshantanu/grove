@@ -24,9 +24,9 @@ ff00::0 ip6-mcastprefix
 ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 
-10.211.55.101   node1
-10.211.55.102   node2
-10.211.55.103   node3
+10.211.55.101   storm1
+10.211.55.102   storm2
+10.211.55.103   storm3
 EOF
 
 apt-get install curl wget vim rlwrap -y
@@ -160,11 +160,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       v.vmx["memsize"]  = "2048"
     end
     master.vm.provider :virtualbox do |v|
-      v.name = "node1"
+      v.name = "storm1"
       v.customize ["modifyvm", :id, "--memory", "2048"]
     end
     master.vm.network :private_network, ip: "10.211.55.101"
-    master.vm.hostname = "node1"
+    master.vm.hostname = "storm1"
     master.vm.provision :shell, :inline => $init_script
     master.vm.provision "ansible" do |ansible|
         ansible.playbook = "playbook.yml"
@@ -177,11 +177,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       v.vmx["memsize"]  = "2048"
     end
     slave1.vm.provider :virtualbox do |v|
-      v.name = "node2"
+      v.name = "storm2"
       v.customize ["modifyvm", :id, "--memory", "2048"]
     end
     slave1.vm.network :private_network, ip: "10.211.55.102"
-    slave1.vm.hostname = "node2"
+    slave1.vm.hostname = "storm2"
     slave1.vm.provision :shell, :inline => $init_script
     slave1.vm.provision "ansible" do |ansible|
         ansible.playbook = "playbook.yml"
@@ -194,11 +194,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       v.vmx["memsize"]  = "2048"
     end
     slave2.vm.provider :virtualbox do |v|
-      v.name = "node3"
+      v.name = "storm3"
       v.customize ["modifyvm", :id, "--memory", "2048"]
     end
     slave2.vm.network :private_network, ip: "10.211.55.103"
-    slave2.vm.hostname = "node3"
+    slave2.vm.hostname = "storm3"
     slave2.vm.provision :shell, :inline => $init_script
     slave2.vm.provision "ansible" do |ansible|
         ansible.playbook = "playbook.yml"
